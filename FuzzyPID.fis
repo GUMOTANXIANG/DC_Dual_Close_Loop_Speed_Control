@@ -1,0 +1,90 @@
+
+[System]
+Name='FuzzyPID'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=3
+NumRules=25
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='error'
+Range=[-100 100]
+NumMFs=5
+MF1='NB':'trimf',[-100 -100 -50]
+MF2='NS':'trimf',[-100 -50 0]
+MF3='Z':'trimf',[-50 0 50]
+MF4='PS':'trimf',[0 50 100]
+MF5='PB':'trimf',[50 100 100]
+
+[Input2]
+Name='delta_error'
+Range=[-100 100]
+NumMFs=5
+MF1='NB':'trimf',[-100 -100 -50]
+MF2='NS':'trimf',[-100 -50 0]
+MF3='Z':'trimf',[-50 0 50]
+MF4='PS':'trimf',[0 50 100]
+MF5='PB':'trimf',[50 100 100]
+
+[Output1]
+Name='kp'
+Range=[-3 3]
+NumMFs=5
+MF1='Low':'trimf',[-3 -3 -1.5]
+MF2='MediumLow':'trimf',[-3 -1.5 0]
+MF3='Medium':'trimf',[-1.5 0 1.5]
+MF4='MediumHigh':'trimf',[0 1.5 3]
+MF5='High':'trimf',[1.5 3 3]
+
+[Output2]
+Name='ki'
+Range=[-3 3]
+NumMFs=5
+MF1='Low':'trimf',[-3 -3 -1.5]
+MF2='MediumLow':'trimf',[-3 -1.5 0]
+MF3='Medium':'trimf',[-1.5 0 1.5]
+MF4='MediumHigh':'trimf',[0 1.5 3]
+MF5='High':'trimf',[1.5 3 3]
+
+[Output3]
+Name='kd'
+Range=[-3 3]
+NumMFs=5
+MF1='Low':'trimf',[-3 -3 -1.5]
+MF2='MediumLow':'trimf',[-3 -1.5 0]
+MF3='Medium':'trimf',[-1.5 0 1.5]
+MF4='MediumHigh':'trimf',[0 1.5 3]
+MF5='High':'trimf',[1.5 3 3]
+
+[Rules]
+1 1, 1 1 1 (1) : 1
+2 2, 2 2 2 (1) : 1
+3 3, 3 3 3 (1) : 1
+4 4, 4 4 4 (1) : 1
+5 5, 5 5 5 (1) : 1
+1 2, 1 1 1 (1) : 1
+2 3, 2 2 2 (1) : 1
+3 4, 3 3 3 (1) : 1
+4 5, 4 4 4 (1) : 1
+5 1, 5 5 5 (1) : 1
+1 3, 1 1 1 (1) : 1
+2 4, 2 2 2 (1) : 1
+3 5, 3 3 3 (1) : 1
+4 1, 4 4 4 (1) : 1
+5 2, 5 5 5 (1) : 1
+1 4, 1 1 1 (1) : 1
+2 5, 2 2 2 (1) : 1
+3 1, 3 3 3 (1) : 1
+4 2, 4 4 4 (1) : 1
+5 3, 5 5 5 (1) : 1
+1 5, 1 1 1 (1) : 1
+2 1, 2 2 2 (1) : 1
+3 2, 3 3 3 (1) : 1
+4 3, 4 4 4 (1) : 1
+5 4, 5 5 5 (1) : 1
