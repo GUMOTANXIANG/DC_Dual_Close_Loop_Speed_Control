@@ -1,0 +1,2 @@
+# DC_Dual_Close_Loop_Speed_Control
+双闭环模糊pid控制直流电机转速
